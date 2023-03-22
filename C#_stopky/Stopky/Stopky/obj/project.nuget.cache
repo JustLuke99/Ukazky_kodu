@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "73C2Gbme3UFoRRkU89Ui2SQVr+rCNs9UJaos2imUrJfXGe8VX61me8+HFMb2cBWTT4IyEZaepd776BFVfioeXQ==",
+  "dgSpecHash": "g7HlN36L5ooxS71aJPBQgY8JvNS28pw7k6D6ojMja4A9UWo3CFclBz+i0lznPx6IOLzH+gsgNY3k/BSoBoOG4A==",
   "success": true,
   "projectFilePath": "C:\\Users\\lukas\\Documents\\GitHub\\Ukazky_kodu\\C#_stopky\\Stopky\\Stopky\\Stopky.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\lukas\\.nuget\\packages\\communitytoolkit.mvvm\\8.2.0-preview1\\communitytoolkit.mvvm.8.2.0-preview1.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\microsoft.toolkit.mvvm\\7.1.2\\microsoft.toolkit.mvvm.7.1.2.nupkg.sha512",
+    "C:\\Users\\lukas\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

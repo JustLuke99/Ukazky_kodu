@@ -1,18 +1,44 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Text.Json;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Threading;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Stopky.Commands;
 using Stopky.Stores;
+using Microsoft.Toolkit.Mvvm.Input;
+using Stopky.Models;
 
 namespace Stopky.ViewModels;
 
 public class TimerViewModel: ViewModelBase{
     private string _timePassed = "00:00:00";
+    private string _saveName = "";
     private Stopwatch _timer = new Stopwatch();
-    private DispatcherTimer _dispatcher = new DispatcherTimer();  
+    private DispatcherTimer _dispatcher = new DispatcherTimer();
+    private string _startV = "Visible";
+    private string _pauseV = "hidden";
+    private string _stopV = "hidden";
+    private string _restartV = "hidden";
+    private string _saveV = "hidden";
+    private string _boxV = "hidden";
+    private string _save2 = "hidden";
 
+    public string SaveName{
+        get{
+            return _saveName;
+        }
+
+        set{
+            _saveName = value;
+            OnPropertyChanged(nameof(SaveName));
+        }
+    }
+    
     public string TimePassed{
         get{
             return _timePassed;
@@ -24,18 +50,98 @@ public class TimerViewModel: ViewModelBase{
         }
     }
     
+    public string StartV{
+        get{
+            return _startV;
+        }
+
+        set{
+            _startV = value;
+            OnPropertyChanged(nameof(StartV));
+        }
+    }
+    
+    public string PauseV{
+        get{
+            return _pauseV;
+        }
+
+        set{
+            _pauseV = value;
+            OnPropertyChanged(nameof(PauseV));
+        }
+    }
+    
+    public string StopV{
+        get{
+            return _stopV;
+        }
+
+        set{
+            _stopV = value;
+            OnPropertyChanged(nameof(StopV));
+        }
+    }
+    
+    public string RestartV{
+        get{
+            return _restartV;
+        }
+
+        set{
+            _restartV = value;
+            OnPropertyChanged(nameof(RestartV));
+        }
+    }
+    
+    public string SaveV{
+        get{
+            return _saveV;
+        }
+
+        set{
+            _saveV = value;
+            OnPropertyChanged(nameof(SaveV));
+        }
+    }
+    
+    public string BoxV{
+        get{
+            return _boxV;
+        }
+
+        set{
+            _boxV = value;
+            OnPropertyChanged(nameof(BoxV));
+        }
+    }
+    
+    public string Save2{
+        get{
+            return _save2;
+        }
+
+        set{
+            _save2 = value;
+            OnPropertyChanged(nameof(Save2));
+        }
+    }
+
     public ICommand StartCommand{ get; }
-    //public ICommand PauseCommand{ get; }
+    public ICommand PauseCommand{ get; }
     public ICommand StopCommand{ get; }
     public ICommand RestartCommand{ get; }
-    public ICommand SaveTimeViewCommand{ get; }
+    public ICommand SaveCommand{ get; }
+    public ICommand SaveTimeCommand{ get; }
 
-     public TimerViewModel(Stores.NavigationStore navigationStore, Func<SavedTimesListViewModel> savedTimesListViewModel, Func<SaveTimeViewModel> saveTimeViewModel){
-        StartCommand = new StartTimerCommand(_timer, _dispatcher);
-        RestartCommand = new StopTimerCommand(_timer, _dispatcher);
-        SaveTimeViewCommand = new NavigateCommand(navigationStore, saveTimeViewModel);
-            
-        StopCommand = new RestartTimerCommand(_timer, _dispatcher, TimePassed);
+     public TimerViewModel(Stores.NavigationStore navigationStore, Func<SavedTimesListViewModel> savedTimesListViewModel){
+         
+        StartCommand = new RelayCommand(StartTimer);
+        RestartCommand = new RelayCommand(RestartTimer);
+        StopCommand = new RelayCommand(StopTimer);
+        PauseCommand = new RelayCommand(PauseTimer);
+        SaveCommand = new RelayCommand(ShowSave);
+        SaveTimeCommand = new RelayCommand(SaveTime);
 
         _dispatcher.Tick += new EventHandler(dt_Tick);  
         _dispatcher.Interval = new TimeSpan(0, 0, 0, 0, 1);
@@ -46,5 +152,64 @@ public class TimerViewModel: ViewModelBase{
             TimeSpan elapsed = _timer.Elapsed;  
             TimePassed = String.Format("{0:00}:{1:00}:{2:00}", elapsed.Minutes, elapsed.Seconds, elapsed.Milliseconds / 10);  
         }  
+    }
+
+    private void StartTimer(){
+        _timer.Start();  
+        _dispatcher.Start();
+        PauseV = "Visible";
+        StopV = "hidden";
+        RestartV = "hidden";
+        StartV = "hidden";
+    }
+    
+    private void PauseTimer(){
+        if (_timer.IsRunning){  
+            _timer.Stop();  
+        }
+        PauseV = "hidden";
+        StopV = "Visible";
+        StartV = "Visible";
+    }
+    
+    private void StopTimer(){
+        if (_timer.IsRunning){  
+            _timer.Stop();  
+        }
+        StartV = "hidden";
+        StopV = "hidden";
+        RestartV = "Visible";
+        SaveV = "Visible";
+    }
+    
+    private void RestartTimer(){
+        _timer.Stop();
+        _timer.Reset();
+        TimePassed = "00:00:00";
+        RestartV = "hidden";
+        StartV = "Visible";
+        SaveV = "hidden";
+    }
+    
+    private void ShowSave(){
+        BoxV = "Visible";
+        Save2 = "Visible";
+        SaveV = "hidden";
+    }
+
+    private void SaveTime(){
+        var json = Newtonsoft.Json.JsonConvert.SerializeObject(new SavedTimeModel(SaveName, TimePassed));
+        string filename = @"D:\path.json";
+
+        if (System.IO.File.Exists(filename) == false){
+            System.IO.File.WriteAllText(filename, json);
+        }
+        else{
+            var file = System.IO.File.ReadAllText(filename);
+            System.IO.File.WriteAllText(filename, json);
+        }
+
+        BoxV = "hidden";
+        Save2 = "hidden";
     }
 }

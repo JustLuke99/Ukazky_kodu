@@ -15,9 +15,6 @@
             <DataTemplate DataType="{x:Type ViewModels:SavedTimesListViewModel}">
                 <views:SavedTimesListView/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type ViewModels:SaveTimeViewModel}">
-                <views:SaveTimeView/>
-            </DataTemplate>
         </Grid.Resources>
         
         

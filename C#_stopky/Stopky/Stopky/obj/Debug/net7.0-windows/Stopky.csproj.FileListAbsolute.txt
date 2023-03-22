@@ -26,3 +26,7 @@ C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\obj\Debug\ne
 C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\obj\Debug\net7.0-windows\Views\MainWindowView.baml
 C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\obj\Debug\net7.0-windows\Views\SavedTimesListView.g.cs
 C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\obj\Debug\net7.0-windows\Views\SavedTimesListView.baml
+C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\bin\Debug\net7.0-windows\CommunityToolkit.Mvvm.dll
+C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\bin\Debug\net7.0-windows\Microsoft.Toolkit.Mvvm.dll
+C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\obj\Debug\net7.0-windows\Stopky.csproj.CopyComplete
+C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\bin\Debug\net7.0-windows\Newtonsoft.Json.dll

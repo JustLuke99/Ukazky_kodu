@@ -36,11 +36,7 @@ namespace Stopky{
         } 
         
         private TimerViewModel CreateTimerViewModel(){
-            return new TimerViewModel(_navigationStore, CreateSavedTimesListViewModel, CreateSaveTimeViewModel);
-        } 
-        
-        private SaveTimeViewModel CreateSaveTimeViewModel(){
-            return new SaveTimeViewModel(_navigationStore, CreateTimerViewModel);
+            return new TimerViewModel(_navigationStore, CreateSavedTimesListViewModel);
         }
     }
 }
