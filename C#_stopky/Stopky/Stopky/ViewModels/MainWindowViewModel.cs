@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using Stopky.Stores;
+﻿using Stopky.Stores;
 
 namespace Stopky.ViewModels;
 

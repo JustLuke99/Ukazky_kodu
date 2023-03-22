@@ -6,7 +6,7 @@
         xmlns:views="clr-namespace:Stopky.Views"
         xmlns:ViewModels="clr-namespace:Stopky.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Stopky" Height="450" Width="800">
     <Grid>
         <Grid.Resources>
             <DataTemplate DataType="{x:Type ViewModels:TimerViewModel}">

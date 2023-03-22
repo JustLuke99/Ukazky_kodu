@@ -20,8 +20,6 @@ C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\obj\Debug\ne
 C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\obj\Debug\net7.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\obj\Debug\net7.0-windows\Views\TimerView.g.cs
 C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\obj\Debug\net7.0-windows\Views\TimerView.baml
-C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\obj\Debug\net7.0-windows\Views\SaveTimeView.g.cs
-C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\obj\Debug\net7.0-windows\Views\SaveTimeView.baml
 C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\obj\Debug\net7.0-windows\Views\MainWindowView.g.cs
 C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\obj\Debug\net7.0-windows\Views\MainWindowView.baml
 C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\obj\Debug\net7.0-windows\Views\SavedTimesListView.g.cs
@@ -30,3 +28,13 @@ C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\bin\Debug\ne
 C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\bin\Debug\net7.0-windows\Microsoft.Toolkit.Mvvm.dll
 C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\obj\Debug\net7.0-windows\Stopky.csproj.CopyComplete
 C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
+C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\bin\Debug\net7.0-windows\Microsoft.EntityFrameworkCore.dll
+C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\bin\Debug\net7.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\bin\Debug\net7.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\bin\Debug\net7.0-windows\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\bin\Debug\net7.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\bin\Debug\net7.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\bin\Debug\net7.0-windows\Microsoft.Extensions.Logging.dll
+C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\bin\Debug\net7.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\bin\Debug\net7.0-windows\Microsoft.Extensions.Options.dll
+C:\Users\lukas\Documents\GitHub\Ukazky_kodu\C#_stopky\Stopky\Stopky\bin\Debug\net7.0-windows\Microsoft.Extensions.Primitives.dll

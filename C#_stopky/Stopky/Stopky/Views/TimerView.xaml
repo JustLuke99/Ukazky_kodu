@@ -15,10 +15,10 @@
         </Grid.RowDefinitions>
         
         <Grid Grid.Row="0">
-            <TextBlock Margin="15 15 15 15" FontSize="60" Text="{Binding TimePassed, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Margin="15 15 15 15" HorizontalAlignment="Center" FontSize="100" Text="{Binding TimePassed, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
         
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="auto"/>
@@ -38,11 +38,11 @@
                     Visibility="{Binding StopV}" Command="{Binding StopCommand}" Margin="8 0 0 0"><Bold>Stop</Bold></Button>
             <Button Grid.Column="1" Background="White" Width="50" Height="25"
                     Visibility="{Binding RestartV}" Command="{Binding RestartCommand}" Margin="8 0 0 0"><Bold>Restart</Bold></Button>
-            <Button Grid.Column="4" Background="White" Width="70" Height="25"
-                    Command="{Binding SaveTimeViewCommand}" Margin="5 0 0 0"><Bold>Přepnout</Bold></Button>
+            <Button Grid.Column="4" Background="White" Width="100" Height="25"
+                    Command="{Binding SaveTimeViewCommand}" Margin="5 0 0 0"><Bold>Saved times</Bold></Button>
         </Grid>
         
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2" HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="auto"/>
