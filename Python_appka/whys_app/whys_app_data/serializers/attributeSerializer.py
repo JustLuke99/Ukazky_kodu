@@ -7,11 +7,9 @@ class AttributeSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField()
     nazev_atributu_id = serializers.PrimaryKeyRelatedField(
         queryset=AttributeName.objects.all(),
-        write_only=True
     )
     hodnota_atributu_id = serializers.PrimaryKeyRelatedField(
         queryset=AttributeValue.objects.all(),
-        write_only=True
     )
 
     class Meta:

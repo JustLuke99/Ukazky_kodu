@@ -7,11 +7,9 @@ class ProductAttributesSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField()
     attribute = serializers.PrimaryKeyRelatedField(
         queryset=Attribute.objects.all(),
-        write_only=True
     )
     product = serializers.PrimaryKeyRelatedField(
         queryset=Product.objects.all(),
-        write_only=True
     )
 
     class Meta:

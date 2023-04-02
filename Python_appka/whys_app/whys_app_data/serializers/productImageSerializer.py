@@ -7,11 +7,9 @@ class ProductImageSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField()
     product = serializers.PrimaryKeyRelatedField(
         queryset=Product.objects.all(),
-        write_only=True
     )
     obrazek_id = serializers.PrimaryKeyRelatedField(
         queryset=Image.objects.all(),
-        write_only=True
     )
 
     class Meta:
