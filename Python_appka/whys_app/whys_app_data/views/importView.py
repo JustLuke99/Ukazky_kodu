@@ -36,46 +36,45 @@ class ImportView(APIView):
         else:
             serializer = my_serializer(data=data)
             
-        if serializer.is_valid():
+        if serializer.is_valid(raise_exception=True):
             serializer.save()
         else:
             return Response(data="Data nelze uložit", status=status.HTTP_400_BAD_REQUEST)
 
-        
     def post(self, request):
+        if list != type(request.data):
+            return Response(data="Spatny typ dat, musi se jednat o list", status=status.HTTP_400_BAD_REQUEST)
+        
         for record in request.data:
             if len(list(record.keys())) > 1:
                 return Response(data="Chyba v datech", status=status.HTTP_400_BAD_REQUEST)
             
             key, values = list(record.keys())[0], list(record.values())[0]
             
+            if dict != type(values):
+                return Response(data="Spatny typ dat pod nazvem modelu, musi se jednat o dict", status=status.HTTP_400_BAD_REQUEST)
+            
+            if not int == type(values["id"]):
+                return Response(data="Spatny typ id", status=status.HTTP_400_BAD_REQUEST)
+            
             match key:
                 case "AttributeName":
                     self.create_or_update(AttributeNameSerializer, AttributeName, values)
-
                 case "AttributeValue":
                     self.create_or_update(AttributeValueSerializer, AttributeValue, values)
-                
                 case "Image":
                     self.create_or_update(ImageSerializer, Image, values)
-                
                 case "Product":
                     self.create_or_update(ProductSerializer, Product, values)
-                
                 case "ProductAttributes": 
                     self.create_or_update(ProductAttributesSerializer, ProductAttributes, values)
-                
                 case "Attribute": 
                     self.create_or_update(AttributeSerializer, Attribute, values)
-                
                 case "ProductImage":
                     self.create_or_update(ProductImageSerializer, ProductImage, values)
-                
                 case "Catalog":
                     self.create_or_update(CatalogSerializer, Catalog, values)
-                    
                 case other:
                     return Response(data="Nazev modelu neexistuje", status=status.HTTP_404_NOT_FOUND)
 
-                    
         return Response(status=status.HTTP_201_CREATED)
