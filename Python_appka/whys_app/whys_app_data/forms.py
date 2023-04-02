@@ -11,39 +11,39 @@ from whys_app_data.models.productImage import *
 class AttributeNameForm(forms.ModelForm):
     class Meta:
         model = AttributeName
-        fields = ['nazev', 'kod', 'zobrazit']
+        fields = '__all__'
 
 class AttributeValueForm(forms.ModelForm):
     class Meta:
         model = AttributeValue
-        fields = ['hodnota']
+        fields = '__all__'
 
 class AttributeForm(forms.ModelForm):
     class Meta:
         model = Attribute
-        fields = ['nazev_atributu_id', 'hodnota_atributu_id']
+        fields = '__all__'
 
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['nazev', 'description', 'cena', 'mena', 'published_on', 'is_published']
+        fields = '__all__'
 
 class ProductAttributesForm(forms.ModelForm):
     class Meta:
         model = ProductAttributes
-        fields = ['attribute', 'product']
+        fields = '__all__'
 
 class ImageForm(forms.ModelForm):
     class Meta:
         model = Image
-        fields = ['nazev', 'obrazek']
+        fields = '__all__'
 
 class ProductImageForm(forms.ModelForm):
     class Meta:
         model = ProductImage
-        fields = ['nazev', 'product', 'obrazek_id']
+        fields = '__all__'
 
 class CatalogForm(forms.ModelForm):
     class Meta:
         model = Catalog
-        fields = ['products_ids']
+        fields = '__all__'

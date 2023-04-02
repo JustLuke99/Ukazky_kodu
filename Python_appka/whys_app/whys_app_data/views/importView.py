@@ -30,6 +30,7 @@ class ImportView(APIView):
     
     def create_or_update(self, my_serializer, model, data):
         model = self.get_existing_model_or_none(model, data["id"])
+        
         if model != None:
             serializer = my_serializer(model, data)
         else:
@@ -38,14 +39,16 @@ class ImportView(APIView):
         if serializer.is_valid():
             serializer.save()
         else:
-            print(f"Chyba při validaci dat: {serializer.errors}")
+            return Response(data="Data nelze uložit", status=status.HTTP_400_BAD_REQUEST)
+
         
     def post(self, request):
-        for ik in request.data:
-            if len(list(ik.keys())) > 1:
-                return Response(status=status.HTTP_400_BAD_REQUEST)
+        for record in request.data:
+            if len(list(record.keys())) > 1:
+                return Response(data="Chyba v datech", status=status.HTTP_400_BAD_REQUEST)
             
-            key, values = list(ik.keys())[0], list(ik.values())[0]
+            key, values = list(record.keys())[0], list(record.values())[0]
+            
             match key:
                 case "AttributeName":
                     self.create_or_update(AttributeNameSerializer, AttributeName, values)
@@ -70,7 +73,9 @@ class ImportView(APIView):
                 
                 case "Catalog":
                     self.create_or_update(CatalogSerializer, Catalog, values)
+                    
                 case other:
-                    ...
+                    return Response(data="Nazev modelu neexistuje", status=status.HTTP_404_NOT_FOUND)
+
                     
         return Response(status=status.HTTP_201_CREATED)

@@ -22,4 +22,4 @@ class DeleteAll(APIView):
         ProductImage.objects.all().delete()
         Catalog.objects.all().delete()
         
-        return Response(status=status.HTTP_200_OK)
+        return Response(status=status.HTTP_205_RESET_CONTENT)
